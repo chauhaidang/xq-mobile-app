@@ -8,8 +8,7 @@
     "bip": "expo prebuild --no-install --platform ios",
     "bi": "cd ios && pod install && sh ./build-sim.sh && cd ..",
     "bap": "expo prebuild --no-install --platform android",
-    "ba": "cd android && ./gradlew :app:assembleRelease && cd ..",
-    "i": "cd ../node-kit-common && yarn i && cd ../omitrix-mobile && yarn install --force"
+    "ba": "cd android && ./gradlew :app:assembleRelease && cd .."
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",

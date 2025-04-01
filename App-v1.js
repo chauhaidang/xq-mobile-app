@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import EntityItem from "./components/EntityItem";
 import EntityInput from "./components/EntityInput";
-import { randomByLength } from 'kit-common';
+import { randomByLength } from './libs/string';
 
 export default function App() {
     const [entities, setEntities] = useState([]);
