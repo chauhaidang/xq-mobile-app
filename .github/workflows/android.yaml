@@ -21,13 +21,19 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Grant Permission to Execute
+      run: chmod +x gradlew
+
     - name: Build APK
       run: |
         npm run bap
         npm run ba
 
     - name: Upload APK to GitHub Packages
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact
+      id: android-artifact-step
       with:
         name: xq-android
         path: android/app/build/outputs/apk/release/app-release.apk
+        retention-days: 3
+        overwrite: true
