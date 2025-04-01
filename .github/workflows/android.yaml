@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Grant Permission to Execute
-      run: chmod +x gradlew
-
     - name: Build APK
       run: |
         npm run bap
