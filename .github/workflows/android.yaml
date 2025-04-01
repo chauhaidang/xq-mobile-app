@@ -27,7 +27,7 @@ jobs:
         npm run ba
 
     - name: Upload APK to GitHub Packages
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: xq-android
         path: android/app/build/outputs/apk/release/app-release.apk
