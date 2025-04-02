@@ -7,10 +7,10 @@ export const TestRequirementContext = createContext({
 
 const TestRequirementContextProvider = ({ children }) => {
   const initialRequirements = generateDummyTestPlans(10)
-  const value = {
+  const requirementContext = {
     requirements: initialRequirements,
   }
-  return <TestRequirementContext.Provider value={value}>{children}</TestRequirementContext.Provider>
+  return <TestRequirementContext.Provider value={requirementContext}>{children}</TestRequirementContext.Provider>
 }
 
 export default TestRequirementContextProvider

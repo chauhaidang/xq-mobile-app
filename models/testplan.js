@@ -14,7 +14,7 @@ export default class TestPlan {
 export function generateDummyTestPlans(total) {
   const testReqs = []
   const date = new Date().toISOString()
-  for (let i = 0; i < total; i++) {
+  for (let i = 1; i <= total; i++) {
     testReqs.push(
       new TestPlan(
         i, `Requirement description ${i}`, 'Medium', 'Open', date, date,
