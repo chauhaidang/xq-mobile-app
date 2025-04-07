@@ -1,10 +1,22 @@
-# ONBOARDING
+# App status
+**Android** [![Build and Publish Android APK](https://github.com/chauhaidang/xq-mobile-app/actions/workflows/android.yaml/badge.svg?branch=main)](https://github.com/chauhaidang/xq-mobile-app/actions/workflows/android.yaml)
 
-### Commands used during development?
+**iOS** [![Build and Publish iOS APP](https://github.com/chauhaidang/xq-mobile-app/actions/workflows/ios.yaml/badge.svg?branch=main)](https://github.com/chauhaidang/xq-mobile-app/actions/workflows/ios.yaml)
 
-`expo install expo-font`
-`expo install @expo-google-fonts/inter`
-`expo install expo-splash-screen`
+
+## ONBOARDING
+
+### Development setup?
+* NodeJS 18
+* MacOS
+* Xcode
+* Android Studio
+
+### Start app locally
+1. Clone the repo
+2. Run `npm i`
+3. Make sure iOS simulator or Android Emulator opened
+4. Run `npm run ios` for iOS or `npm run android` for Android
 
 ### Build using eas-cli
 
@@ -16,22 +28,14 @@
 
 ### Build using manual expo-cli
 
-`yarn install`
+`npm i`
 
-`yarn expo prebuild --no-install --platform <platform_name>`
+`npm run bap` or `npm run bip`
 
 _Android build_:
 
-`cd android && ./gradlew :app:assembleRelease`
+`npm run ba`
 
 _iOS build_:
 
-`gem install cocoapods`
-
-`cd ios && pod install`
-
-`xcodebuild -resolvePackageDependencies -workspace ./omitrixmobile.xcworkspace -scheme omitrixmobile -configuration Release -derivedDataPath ./build -destination generic/platform\=iOS\ Simulator`
-
-`xcodebuild -showBuildSettings -workspace ./omitrixmobile.xcworkspace -scheme omitrixmobile -configuration Release -derivedDataPath ./build -destination generic/platform\=iOS\ Simulator 2>&1`
-
-`set -o pipefail && xcodebuild -workspace ./omitrixmobile.xcworkspace -scheme omitrixmobile -configuration Release -derivedDataPath ./build -destination 'generic/platform=iOS Simulator' build | tee ./logs/omitrixmobile-omitrixmobile.log > /dev/null`
+`npm run bi`
