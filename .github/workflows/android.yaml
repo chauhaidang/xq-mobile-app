@@ -1,6 +1,7 @@
 name: Build and Publish Android APK
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
