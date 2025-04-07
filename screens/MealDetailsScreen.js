@@ -1,31 +1,40 @@
-import {View, Text, Image, StyleSheet, Button} from 'react-native'
-import DetailSection from '../components/DetailSection'
-import { MEALS } from '../data/dummy-data'
-import CustomColors from '../constants/colors'
-import SubTitle from '../components/SubTitle'
-import StaticList from '../components/StaticList'
-import { useContext, useLayoutEffect } from 'react'
-import IconButton from "../components/IconButton";
-import { FavouritesContext } from '../store/context/favourites-context'
+import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import DetailSection from '../components/DetailSection';
+import { MEALS } from '../data/dummy-data';
+import CustomColors from '../constants/colors';
+import SubTitle from '../components/SubTitle';
+import StaticList from '../components/StaticList';
+import { useLayoutEffect } from 'react';
+import IconButton from '../components/IconButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavourite, removeFavourite } from '../store/redux/favourite';
 
 function MealDetailsScreen({ route, navigation }) {
-  const mealId = route.params.mealId
-  const filteredMeal = MEALS.find(meal => meal.id === mealId)
-  const favouriteCtx = useContext(FavouritesContext)
-  const isFavorite = favouriteCtx.ids.includes(mealId)
+  const favouriteMealIds = useSelector((state) => state.favouriteMeals.ids);
+  const mealId = route.params.mealId;
+  const filteredMeal = MEALS.find((meal) => meal.id === mealId);
+  const isFavorite = favouriteMealIds.includes(mealId);
+  const dispatch = useDispatch();
 
   function changeFavouriteStatusHandler() {
     if (isFavorite) {
-      favouriteCtx.removeFavourite(mealId)
+      dispatch(removeFavourite({ id: mealId }));
     } else {
-      favouriteCtx.addFavourite(mealId)
+      dispatch(addFavourite({ id: mealId }));
     }
   }
+
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <IconButton name={isFavorite ? 'star' : 'star-outline'} color={CustomColors.buttonBackground} onPress={changeFavouriteStatusHandler}/>
-    })
-  }, [navigation, changeFavouriteStatusHandler])
+      headerRight: () => (
+        <IconButton
+          name={isFavorite ? 'star' : 'star-outline'}
+          color={CustomColors.buttonBackground}
+          onPress={changeFavouriteStatusHandler}
+        />
+      ),
+    });
+  }, [navigation, changeFavouriteStatusHandler]);
   return (
     <View>
       <Image style={styles.image} source={{ uri: filteredMeal.imageUrl }} />
@@ -45,10 +54,10 @@ function MealDetailsScreen({ route, navigation }) {
         </View>
       </View>
     </View>
-  )
+  );
 }
 
-export default MealDetailsScreen
+export default MealDetailsScreen;
 
 const styles = StyleSheet.create({
   image: {
@@ -71,4 +80,4 @@ const styles = StyleSheet.create({
   listOuterContainer: {
     alignItems: 'center',
   },
-})
+});

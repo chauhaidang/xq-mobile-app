@@ -15,6 +15,8 @@ import DevScreen from './screens/DevScreen';
 import { Ionicons } from '@expo/vector-icons';
 import TestRequirementContextProvider from './store/context/test-requirement-context';
 import { testProps } from './utils/test-utils';
+import { Provider } from 'react-redux';
+import { store } from './store/redux/store';
 
 // Keep the splash screen visible while we fetch resources
 preventAutoHideAsync();
@@ -158,7 +160,8 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle={'default'} />
-      <TestRequirementContextProvider>
+      {/* <TestRequirementContextProvider> */}
+      <Provider store={store}>
         <NavigationContainer onReady={onLayoutRootView}>
           <Stack.Navigator
             screenOptions={{
@@ -182,7 +185,8 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </TestRequirementContextProvider>
+      </Provider>
+      {/* </TestRequirementContextProvider> */}
     </>
   );
 }

@@ -1,26 +1,32 @@
-import { View, Text, StyleSheet } from 'react-native'
-import List from '../../components/List'
-import CustomColors from '../../constants/colors'
-import EntityItem from '../../components/EntityItem'
-import { TestRequirementContext } from '../../store/context/test-requirement-context'
-import { useContext } from 'react'
+import { View, StyleSheet } from 'react-native';
+import List from '../../components/List';
+import CustomColors from '../../constants/colors';
+import EntityItem from '../../components/EntityItem';
+import { useSelector } from 'react-redux';
 
 /**
  * Render handler for the test requirements list
  * @param itemData which should contain the id and description fields
  * @returns {JSX.Element}
  */
-const renderTestRequirementsHandler = itemData => (
-  <EntityItem index={itemData.item.id} data={itemData.item.description} onDelete={() => {}} />
-)
+const renderTestRequirementsHandler = (itemData) => (
+  <EntityItem
+    index={itemData.item.id}
+    data={itemData.item.description}
+    onDelete={() => {}}
+  />
+);
 
 export default function TestPlansScreen() {
-  const requirementCtx = useContext(TestRequirementContext)
+  const requirements = useSelector((state => state.requirementsReducer.requirements));
   return (
     <View style={styles.root}>
-      <List input={requirementCtx.requirements} renderHandler={renderTestRequirementsHandler} />
+      <List
+        input={requirements}
+        renderHandler={renderTestRequirementsHandler}
+      />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -41,4 +47,4 @@ const styles = StyleSheet.create({
     fontFamily: 'open-sans-bold',
     fontStyle: 'normal',
   },
-})
+});
