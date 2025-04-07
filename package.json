@@ -8,7 +8,7 @@
     "bip": "expo prebuild --no-install --platform ios",
     "bi": "cd ios && pod install && sh ./build-sim.sh && cd ..",
     "bap": "expo prebuild --no-install --platform android",
-    "bapci": "expo prebuild --platform android",
+    "bapci": "expo prebuild --no-install --platform android --clean",
     "ba": "cd android && ./gradlew :app:assembleRelease && cd .."
   },
   "dependencies": {
