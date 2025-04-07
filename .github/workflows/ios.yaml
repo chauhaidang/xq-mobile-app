@@ -1,0 +1,36 @@
+name: Build and Publish iOS APP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build APK
+        run: |
+          npm run bip
+          npm run bi
+
+      - name: Upload APK to GitHub Packages
+        uses: actions/upload-artifact@v4
+        id: ios-artifact-step
+        with:
+          name: xq-ios
+          path: ios/build/Products/Release-iphonesimulator/omitrixmobile.app/
+          retention-days: 3
+          overwrite: true
