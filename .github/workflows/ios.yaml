@@ -9,7 +9,7 @@ on:
       - '.github/**'
       - '.gitignore'
       - 'LICENSE'
-
+      - 'workflows/android.yaml'
 jobs:
   build:
     runs-on: macos-latest
@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build APK
+      - name: Build App
         run: |
           npm run bip
           npm run bi

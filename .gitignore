@@ -66,3 +66,6 @@ node_modules/
 *.npm/
 *.npmrc
 *.yarnrc
+/android
+/ios
+
