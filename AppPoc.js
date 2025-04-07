@@ -13,7 +13,6 @@ import TestReportsScreen from './screens/xq/TestReportsScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DevScreen from './screens/DevScreen';
 import { Ionicons } from '@expo/vector-icons';
-import TestRequirementContextProvider from './store/context/test-requirement-context';
 import { testProps } from './utils/test-utils';
 import { Provider } from 'react-redux';
 import { store } from './store/redux/store';
