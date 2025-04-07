@@ -28,7 +28,7 @@ jobs:
 
     - name: Build APK
       run: |
-        npm run bap
+        npm run bapci
         npm run ba
 
     - name: Upload APK to GitHub Packages
