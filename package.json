@@ -8,7 +8,7 @@
     "bip": "expo prebuild --no-install --platform ios",
     "bi": "cd ios && pod install && sh ./build-sim.sh && cd ..",
     "bap": "expo prebuild --no-install --platform android",
-    "ba": "cd android && ./gradlew :app:assembleRelease && cd .."
+    "ba": "cd android && ./gradlew clean :app:assembleRelease && cd .."
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^7.3.9",

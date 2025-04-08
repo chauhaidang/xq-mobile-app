@@ -24,13 +24,6 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Download and Set Up Gradle
-      run: |
-        wget https://services.gradle.org/distributions/gradle-8.13-bin.zip
-        unzip gradle-8.13-bin.zip
-        echo "GRADLE_HOME=$PWD/gradle-8.10.2" >> $GITHUB_ENV
-        echo "$GRADLE_HOME/bin" >> $GITHUB_PATH
-
     - name: Install dependencies
       run: npm install
 
