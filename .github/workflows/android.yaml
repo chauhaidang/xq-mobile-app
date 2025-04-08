@@ -27,10 +27,10 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Workaround gradle build react-native 0.75
-      run: |
-        mv build.gradle.kts node_modules/@react-native/gradle-plugin/react-native-gradle-plugin/build.gradle.kts
-
+#    - name: Workaround gradle build react-native 0.75
+#      run: |
+#        mv build.gradle.kts node_modules/@react-native/gradle-plugin/react-native-gradle-plugin/build.gradle.kts
+#
     - name: Build APK
       run: |
         npm run bap
