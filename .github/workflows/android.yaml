@@ -10,7 +10,6 @@ on:
       - '.github/**'
       - '.gitignore'
       - 'LICENSE'
-      - 'workflows/ios.yaml'
 jobs:
   build:
     runs-on: ubuntu-latest

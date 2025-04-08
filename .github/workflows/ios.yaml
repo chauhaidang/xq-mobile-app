@@ -1,6 +1,7 @@
 name: Build and Publish iOS APP
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -9,7 +10,6 @@ on:
       - '.github/**'
       - '.gitignore'
       - 'LICENSE'
-      - 'workflows/android.yaml'
 jobs:
   build:
     runs-on: macos-latest
@@ -29,6 +29,7 @@ jobs:
       - name: Build App
         run: |
           npm run bip
+          cp build-sim.sh ios/build-sim.sh
           npm run bi
 
       - name: Upload APK to GitHub Packages
