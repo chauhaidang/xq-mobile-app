@@ -11,19 +11,19 @@
     "ba": "cd android && ./gradlew clean :app:assembleRelease && cd .."
   },
   "dependencies": {
-    "@react-navigation/bottom-tabs": "^7.3.9",
-    "@react-navigation/native": "^7.1.5",
-    "@react-navigation/native-stack": "^7.3.9",
-    "@reduxjs/toolkit": "^2.6.1",
-    "expo": "^52.0.0",
-    "expo-splash-screen": "~0.27.7",
-    "react": "^18.2.0",
-    "react-native": "0.74.5",
+    "@react-navigation/bottom-tabs": "~7.3.9",
+    "@react-navigation/native": "~7.1.5",
+    "@react-navigation/native-stack": "~7.3.9",
+    "@reduxjs/toolkit": "~2.6.1",
+    "expo": "~52.0.0",
+    "expo-splash-screen": "~0.29.22",
+    "react": "~18.3.1",
+    "react-native": "0.76.9",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.4.0",
-    "react-redux": "^9.2.0",
+    "react-redux": "~9.2.0",
     "expo-font": "~13.0.4",
-    "@expo/vector-icons": "^14.0.2"
+    "@expo/vector-icons": "~14.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.25.2",
