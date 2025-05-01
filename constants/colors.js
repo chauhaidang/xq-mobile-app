@@ -10,6 +10,18 @@ const CustomColors = {
   shadow: 'black',
   textBlack: 'black',
   buttonBackgroundDark: '#d9d4d4',
+  purple_1: '#F4E7FB',
+  purple_2: '#F3DCDC',  
+  purple_3: '#F5BCBA',
+  purple_4: '#E3AADD',
+  purple_5: '#C8A8E9',
+  purple_6: '#C3C7F3',
+  green_1: '#213A57',
+  green_2: '#0b6477',
+  green_3: '#14919b',
+  green_4: '#0ad1c8', 
+  green_5: '#45dfb1',
+  green_6: '#80ed99',
 }
 
 export default CustomColors
