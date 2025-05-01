@@ -5,8 +5,8 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "bip": "expo prebuild --no-install --platform ios",
-    "bi": "cd ios && pod install && sh ./build-sim.sh && cd ..",
+    "bip": "expo prebuild --no-install --platform ios && cp build-sim.sh ios/build-sim.sh && chmod +x ios/build-sim.sh",
+    "bi": "cd ios && pod update && pod install && sh ./build-sim.sh && cd ..",
     "bap": "expo prebuild --no-install --platform android",
     "ba": "cd android && ./gradlew clean :app:assembleRelease && cd .."
   },
