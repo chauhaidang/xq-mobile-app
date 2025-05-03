@@ -1,14 +1,10 @@
 import { View, StyleSheet, FlatList, Text } from 'react-native';
 import CustomColors from '../constants/colors';
+import ExpenseItem from './ExpenseItem';
 
 export default function ExpenseList({ expenses }) {
   const renderExpenseHandler = (dataObj) => {
-    
-    return (
-      <Text style={{ color: CustomColors.textBlack }}>
-        {dataObj.item.description} - ${dataObj.item.amount}
-      </Text>
-    );
+    return <ExpenseItem {...dataObj.item}/>;
   };
 
   return (
