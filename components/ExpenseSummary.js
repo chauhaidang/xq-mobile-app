@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   sum: {
     fontSize: 16,
-    fontWweight: 'bold',
+    fontWeight: 'bold',
     color: CustomColors.textBlack,
   }
 });

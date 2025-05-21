@@ -35,7 +35,6 @@ export default function ExpenseOutput({ expenses, expensesPeriod }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 20,
     backgroundColor: CustomColors.green_5,
   },
