@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { TouchableOpacity, StatusBar, StyleSheet } from 'react-native';
+import { TouchableOpacity, StatusBar, StyleSheet, SafeAreaView } from 'react-native';
 import { loadAsync } from 'expo-font';
 import CustomColors from './constants/colors';
 import { preventAutoHideAsync, hideAsync } from 'expo-splash-screen';
@@ -81,6 +81,10 @@ function BottomTabNavigator() {
           color: CustomColors.textTitle,
         },
         tabBarActiveTintColor: CustomColors.textTitle,
+        tabBarLabelStyle: {
+          fontSize: 15,
+          bottom: 4
+        }
       }}
     >
       <BottomTab.Screen
@@ -94,7 +98,7 @@ function BottomTabNavigator() {
             <TouchableOpacity
               {...props}
               {...testProps('bottom-nav-home')}
-              accessibilityLabel="Bottom Navigation Home" // Optional: for accessibility
+              accessibilityLabel="Bottom Navigation Workbench" // Optional: for accessibility
             />
           ),
           headerShown: false,
@@ -160,31 +164,33 @@ export default function App() {
     <>
       <StatusBar barStyle={'default'} />
       {/* <TestRequirementContextProvider> */}
-      <Provider store={store}>
-        <NavigationContainer onReady={onLayoutRootView}>
-          <Stack.Navigator
-            screenOptions={{
-              headerStyle: { backgroundColor: CustomColors.background },
-              headerBackButtonDisplayMode: 'generic',
-              headerTitleAlign: 'center',
-              headerTintColor: CustomColors.textTitle,
-              headerTitleStyle: {
-                fontSize: 26,
-                fontFamily: 'open-sans-bold',
-                color: CustomColors.textTitle,
-              },
-            }}
-          >
-            <Stack.Screen
-              name={TITLES.BOTTOM_NAV}
-              component={BottomTabNavigator}
-              options={{
-                headerShown: false,
+      <SafeAreaView style={styles.root}>
+        <Provider store={store}>
+          <NavigationContainer onReady={onLayoutRootView}>
+            <Stack.Navigator
+              screenOptions={{
+                headerStyle: { backgroundColor: CustomColors.background },
+                headerBackButtonDisplayMode: 'generic',
+                headerTitleAlign: 'center',
+                headerTintColor: CustomColors.textTitle,
+                headerTitleStyle: {
+                  fontSize: 26,
+                  fontFamily: 'open-sans-bold',
+                  color: CustomColors.textTitle,
+                },
               }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </Provider>
+            >
+              <Stack.Screen
+                name={TITLES.BOTTOM_NAV}
+                component={BottomTabNavigator}
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </Provider>
+      </SafeAreaView>
       {/* </TestRequirementContextProvider> */}
     </>
   );

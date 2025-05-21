@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, View, Text } from 'react-native';
 import CustomColors from '../constants/colors';
+import { getFormattedDate } from '../utils/date';
 
 export default function ExpenseItem({ description, amount, date }) {
   return (
