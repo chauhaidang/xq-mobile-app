@@ -39,3 +39,7 @@ _Android build_:
 _iOS build_:
 
 `npm run bi`
+
+### Build output
+ios app located at `ios/build/Products/Release-iphonesimulator/omitrixmobile.app`
+android apk located at `android/app/build/outputs/apk/release/app-release.apk`

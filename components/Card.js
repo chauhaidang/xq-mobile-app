@@ -7,16 +7,17 @@ import { testProps } from '../utils/test-utils'
 function Card({ children }) {
   const navigation = useNavigation()
   return (
-    <View style={styles.root}>
+    <View style={styles.root} accessible={false}>
       <Pressable
         android_ripple={styles.androidRipple}
         style={({ pressed }) => [{ flex: 1 }, pressed && ios.buttonPressed]}
         onPress={() => {
           navigation.navigate(children, {})
         }}
+        {...testProps(`card-pressable-${children}`)}
       >
-        <View {...testProps(`card-${children}`)} style={styles.innerContainer}>
-          <Text style={styles.heading}>{children}</Text>
+        <View style={styles.innerContainer} accessible={false}>
+          <Text {...testProps(`card-${children}`)} style={styles.heading}>{children}</Text>
         </View>
       </Pressable>
     </View>

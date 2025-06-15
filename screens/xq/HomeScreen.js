@@ -4,7 +4,7 @@ import { TITLES } from '../../constants/screens';
 
 function HomeScreen() {
   return (
-    <View style={styles.root}>
+    <View style={styles.root} accessible={false}>
       <Card>{TITLES.TEST_PLAN_OVERVIEW}</Card>
       <Card>{TITLES.TEST_CASE_OVERVIEW}</Card>
       <Card>{TITLES.TEST_REPORT_OVERVIEW}</Card>
