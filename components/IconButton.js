@@ -1,18 +1,29 @@
-import { Ionicons } from '@expo/vector-icons'
-import {Pressable, StyleSheet} from "react-native";
+import { Ionicons } from '@expo/vector-icons';
+import { View, Pressable, StyleSheet } from 'react-native';
 
-function IconButton({name, color, onPress}) {
-   return (
-       <Pressable onPress={onPress} style={({pressed}) => pressed && styles.root}>
-           <Ionicons name={name} color={color}/>
-       </Pressable>
-   )
+function IconButton({ name, size, color, onPress }) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => pressed && styles.buttonPressed}
+    >
+      <View style={styles.buttonContainer}>
+        <Ionicons name={name} color={color} size={size} />
+      </View>
+    </Pressable>
+  );
 }
 
-export default IconButton
+export default IconButton;
 
 const styles = StyleSheet.create({
-    root: {
-        opacity: 0.7
-    }
-})
+  buttonContainer: {
+    borderRadius: 25,
+    padding: 6,
+    marginHorizontal: 8,
+    marginVertical: 4,
+  },
+  buttonPressed: {
+    opacity: 0.7,
+  },
+});

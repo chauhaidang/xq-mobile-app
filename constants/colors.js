@@ -22,6 +22,7 @@ const CustomColors = {
   green_4: '#0ad1c8', 
   green_5: '#45dfb1',
   green_6: '#80ed99',
+  red_1: '#EF476F',
 }
 
 export default CustomColors

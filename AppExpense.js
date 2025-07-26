@@ -8,6 +8,7 @@ import AllExpenses from './screens/expense/AllExpenses';
 import RecentExpenses from './screens/expense/RecentExpenses';
 import CustomColors from './constants/colors';
 import { Ionicons } from '@expo/vector-icons';
+import IconButton from './components/IconButton';
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -15,12 +16,25 @@ const BottomTab = createBottomTabNavigator();
 function ExpenseOverview() {
   return (
     <BottomTab.Navigator
-      screenOptions={{
+      screenOptions={({ navigation }) => ({
         headerStyle: { backgroundColor: CustomColors.background },
         headerTintColor: CustomColors.green_2,
         tabBarStyle: { backgroundColor: CustomColors.background },
         tabBarActiveTintColor: CustomColors.green_2,
-      }}
+        headerRight: ({ tintColor }) => {
+          return (
+            <IconButton
+              name='add'
+              size={24}
+              color={tintColor}
+              onPress={() => {
+                // Navigate to ManageExpense screen with a new expense
+                navigation.navigate('ManageExpense')
+              }}
+            />
+          );
+        }
+      })}
     >
       <BottomTab.Screen
         name='RecentExpenses'
@@ -53,13 +67,18 @@ export default function App() {
     <>
       <StatusBar style={'auto'} />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+          headerStyle: { backgroundColor: CustomColors.background },
+          headerTintColor: CustomColors.green_2,
+        }}>
           <Stack.Screen
             name='ExpenseOverview'
             component={ExpenseOverview}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name='ManageExpense' component={ManageExpense} />
+          <Stack.Screen name='ManageExpense' component={ManageExpense} options={{
+            presentation: 'modal',
+          }} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

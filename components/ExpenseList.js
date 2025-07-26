@@ -20,6 +20,6 @@ export default function ExpenseList({ expenses }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: CustomColors.purple_1,
+    backgroundColor: CustomColors.green_5,
   },
 });
